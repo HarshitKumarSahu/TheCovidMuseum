@@ -15,16 +15,18 @@ function raf(time) {
 
 requestAnimationFrame(raf)
 
+
+let tl = gsap.timeline()
+let fixed = document.getElementById("fixed")
+
+
 document.querySelectorAll(".elem").forEach(elem => {
     let image = elem.querySelector("img")
-    let tl = gsap.timeline()
-
     let xTransform = gsap.utils.random(-100,100);
-
     tl
         .set(image , {
             transformOrigin : `${xTransform < 0 ? 0 : "100%"}`
-        }, "start")
+        }, "a")
         .to(image , {
             scale : 0 ,
             ease: "none",
@@ -34,7 +36,7 @@ document.querySelectorAll(".elem").forEach(elem => {
                 end : "bottom top" , 
                 scrub : true
             }
-        }, "start")
+        }, "a")
         .to(elem , {
             xPercent : xTransform, 
             ease: "none",
@@ -44,5 +46,5 @@ document.querySelectorAll(".elem").forEach(elem => {
                 end : "bottom top" , 
                 scrub : true
             }
-        }, "start")
+        }, "a")
 })
