@@ -15,14 +15,18 @@ function raf(time) {
 
 requestAnimationFrame(raf)
 
+let heading = document.querySelectorAll("#heading");
 
-let tl = gsap.timeline()
-let fixed = document.getElementById("fixed")
-
+gsap.from(heading, {
+    opacity : 0,
+    duration: 4,
+    delay : 0.525
+})
 
 document.querySelectorAll(".elem").forEach(elem => {
     let image = elem.querySelector("img")
     let xTransform = gsap.utils.random(-100,100);
+    let tl = gsap.timeline()
     tl
         .set(image , {
             transformOrigin : `${xTransform < 0 ? 0 : "100%"}`
