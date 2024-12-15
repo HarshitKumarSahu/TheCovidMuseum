@@ -4,7 +4,7 @@ const lenis = new Lenis({
     direction: 'vertical', 
     gestureDirection: 'vertical',
     smooth: true,
-    smoothTouch: false,
+    smoothTouch: true,
     touchMultiplier: 2
 })
 
@@ -52,3 +52,7 @@ document.querySelectorAll(".elem").forEach(elem => {
             }
         }, "a")
 })
+
+window.addEventListener('touchstart', () => {
+    lenis.start();
+});
